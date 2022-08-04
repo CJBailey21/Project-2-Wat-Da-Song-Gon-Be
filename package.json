@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "i": "^0.3.7",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
+    "sequelize": "^6.21.3"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "wat-da-song-gon-be",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CJBailey21/Project-2-Wat-Da-Song-Gon-Be.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CJBailey21/Project-2-Wat-Da-Song-Gon-Be/issues"
+  },
+  "homepage": "https://github.com/CJBailey21/Project-2-Wat-Da-Song-Gon-Be#readme",
+  "description": ""
+}
