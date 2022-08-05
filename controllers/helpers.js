@@ -9,7 +9,7 @@ exports.isLoggedIn = function (req, res, next) {
     next();
   }
 
-exports.isNotLoggedIn = function (req, res, next) {
+exports.isLoggedOut = function (req, res, next) {
     const user_id = req.session.user_id
     const is_main_page = req.path.match(/index/gi)
 
