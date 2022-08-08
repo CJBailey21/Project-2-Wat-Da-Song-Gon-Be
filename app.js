@@ -191,3 +191,5 @@ function callApi(method,url,body,callback){
 
 // User profile name (maybe picture maybe follower), user playlists
 //eventually need to connect the server we made to this
+
+//eventually hide client secret in local storage
