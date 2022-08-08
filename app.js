@@ -161,6 +161,8 @@ function callApi(method,url,body,callback){
     let xhr = new XMLHttpRequest();
     xhr.open(method,url,true);
     xhr.setRequestHeader('Content-Type','application/json');
+    let access_token = localStorage.getItem("acess_token");
+    console.log(access_token);
     xhr.setRequestHeader('Authorization','Bearer '+ access_token);
     xhr.send(body);
     xhr.onload = callback;
@@ -181,3 +183,4 @@ function removeAllItems(elementId){
 
 //What I got after I agreed:
 //http://127.0.0.1:5500/?code=AQDUFekIRpUN9-mqvGaHO8HtQBFWXxQKmgMMy1M09Rrs5lfnLhlsIsx7hVPN9jwABlnPFpXeoejCVWsFEBZVoxoVz8I59rT8zJXc9HwzGvny8F6ObuguWQLv78lugQnTv9aLDwC9-tOhQU-ZmxcbvDYnQtWab1EAQdbd96vtZIc5Dly83MM3jgE_PRI
+// User profile name (maybe picture maybe follower), user playlists
