@@ -47,7 +47,7 @@ User.prototype.validatePassword = async function (pass, stored_pass) {
   }
 
 User.hasMany(Follower)
-Follower.belongsToMany(User, { foreignKey: 'id' })
+Follower.belongsToMany(User, { through: 'user', foreignKey: 'id' })
 
   
   module.exports = User;
