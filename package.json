@@ -6,6 +6,7 @@
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "i": "^0.3.7",
+    "inquirer": "^9.1.0",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.19",
     "sequelize": "^6.21.3"
@@ -27,5 +28,8 @@
     "url": "https://github.com/CJBailey21/Project-2-Wat-Da-Song-Gon-Be/issues"
   },
   "homepage": "https://github.com/CJBailey21/Project-2-Wat-Da-Song-Gon-Be#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "buffer": "^6.0.3"
+  }
 }
