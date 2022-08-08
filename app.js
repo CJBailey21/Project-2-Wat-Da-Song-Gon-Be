@@ -6,7 +6,10 @@ var client_secret = "f306af294bef4360a793d548c5971e42";
 
 const AUTHORIZE = "https://accounts.spotify.com/authorize" //the spotify authorize link
 const TOKEN = "https://accounts.spotify.com/api/token";
+const USER = "https://api.spotify.com/v1/me"
 const DEVICES = "https://api.spotify.com/v1/me/player/devices"
+const PLAYLISTS = "https://api.spotify.com/v1/me/playlists"
+const SONGPLAYING = "https://api.spotify.com/v1/me/player/currently-playing"
 
 function onPageLoad(){
     localStorage.setItem("client_id",client_id);
@@ -113,22 +116,25 @@ function requestAuthorization(){
     url+= "&response_type=code";
     url+= "&redirect_uri=" + encodeURI(redirect_uri);
     url += "&show_dialog=true";
-    url += "&scope=user-read-private user-read-email user-read-playback-state user-modify-playback-state"
+    url += "&scope=user-read-private user-read-email user-read-playback-state user-modify-playback-state user-read-recently-played"
     window.location.href = url;
     // window.location.href = url; //Show SPotify's authorization screen
 }
 
-function refreshDevices(){
+function ApiCalls(){
     callApi("GET",DEVICES,null,handleDevicesResponse);
+    callApi("GET",PLAYLISTS,null,handleDevicesResponse);
+    callApi("GET",SONGPLAYING,null,handleDevicesResponse);
+    callApi("GET",USER,null,handleDevicesResponse);
 }
 
+
 function handleDevicesResponse(){
-    console.log(this.status);
     if(this.status == 200){
         var data = JSON.parse(this.responseText);
         console.log(data);
-        removeAllitems("devices");
-        data.devices.forEach(item=> addDevice(item));
+        // removeAllitems("devices");
+        // data.devices.forEach(item=> addDevice(item));
     }
     else if(this.status == 401){
         
@@ -140,12 +146,7 @@ function handleDevicesResponse(){
     }
 }
 
-function addDevice(item){
-    let node = document.createElement("option");
-    node.value = item.id;
-    node.innerHTML = item.name;
-    document.getElementById("devices").appendChild(node);
-}
+
 
 
 function refreshAccessToken(){
@@ -169,18 +170,24 @@ function callApi(method,url,body,callback){
     
 }
 
-function removeAllItems(elementId){
-    let node = document.getElementById(elementId);
-    while(node.firstChild){
-        node.removeChild(node.firstChild);
-    }
-}
+// function removeAllItems(elementId){
+//     let node = document.getElementById(elementId);
+//     while(node.firstChild){
+//         node.removeChild(node.firstChild);
+//     }
+// }
+
+// function addDevice(item){
+//     let node = document.createElement("option");
+//     node.value = item.id;
+//     node.innerHTML = item.name;
+//     document.getElementById("devices").appendChild(node);
+// }
 
 
-//may have to refresh devices
 
 
 
-//What I got after I agreed:
-//http://127.0.0.1:5500/?code=AQDUFekIRpUN9-mqvGaHO8HtQBFWXxQKmgMMy1M09Rrs5lfnLhlsIsx7hVPN9jwABlnPFpXeoejCVWsFEBZVoxoVz8I59rT8zJXc9HwzGvny8F6ObuguWQLv78lugQnTv9aLDwC9-tOhQU-ZmxcbvDYnQtWab1EAQdbd96vtZIc5Dly83MM3jgE_PRI
+
 // User profile name (maybe picture maybe follower), user playlists
+//eventually need to connect the server we made to this
