@@ -9,18 +9,20 @@ Follower.init({
         primaryKey: true,
         autoIncrement: true
     },
-    userId: {
+    // userId: {
+    //     type: DataTypes.INTEGER,
+    //     references:{
+    //         model: 'user',
+    //         key: id,
+    //         as: 'primaryId'
+    //     }
+    // },
+    followedId: {
         type: DataTypes.INTEGER,
         references:{
             model: 'user',
-            key: id
-        }
-    },
-    followerId: {
-        type: DataTypes.INTEGER,
-        references:{
-            model: 'user',
-            key: id
+            key: 'id',
+            as: 'followedId'
         }
     },
 },  {
