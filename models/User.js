@@ -1,9 +1,16 @@
 const { DataTypes, Model } = require('sequelize');
 const bcrypt = require('bcrypt');
+const Follower = require('./follower')
 
 class User extends Model { }
 
 User.init({
+    id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
+    },
     username: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -38,5 +45,9 @@ User.init({
 User.prototype.validatePassword = async function (pass, stored_pass) {
     return await bcrypt.compare(pass, stored_pass);
   }
+
+User.hasMany(Follower)
+Follower.belongsToMany(User, { foreignKey: 'id' })
+
   
   module.exports = User;
