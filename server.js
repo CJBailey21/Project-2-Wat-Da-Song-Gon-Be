@@ -4,7 +4,7 @@ const { engine } = require("express-handlebars");
 const bcrypt = require("bcrypt"); // Place into User.js
 const path = require("path");
 // const { Sequelize } = require("sequelize");
-const PORT = process.env.PORT || 3243; // Placeholder port
+const PORT = process.env.PORT || 4545; // Placeholder port
 require("dotenv").config();
 const connection = require("./config/connection");
 // const controllers = require("./controllers/index");
@@ -25,10 +25,6 @@ app.use(require('./controllers'))
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./views/layouts/main.hbs"));
   console.log(`Listening in on main.hbs.`)
-});
-
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
 });
 
 // async function pending() {
