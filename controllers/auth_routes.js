@@ -23,7 +23,7 @@ auth_router.post('/register', isLoggedIn, (req, res) => {
         });
 });
  
-auth_router.post('/login', isLoggedIn, (req, res) => {
+auth_router.post('/login', isLoggedIn, async (req, res) => {
     const { username, password } = req.body;
   
     if (!username || !password) {
