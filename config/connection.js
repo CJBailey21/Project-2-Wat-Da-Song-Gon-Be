@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 
-const connection = new Sequelize('Users','root','4321',
+const connection = new Sequelize('users_db','root','4321',
   {
     host: 'localhost',
     dialect: 'mysql',
