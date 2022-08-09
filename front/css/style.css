@@ -107,7 +107,7 @@ main.open {
 main {
     display: block;
     padding: 0 1.95em;
-    background: red;
+    background: rgb(94, 183, 143);
     height: 100%;
     /* left: -330px; */
     position: fixed;
