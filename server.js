@@ -7,7 +7,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const PORT = process.env.PORT || 4545; // Placeholder port
 require("dotenv").config();
 const app = express();
-const { view_routes, user_routes, auth_routes } = require('./controllers')
+const { view_router, user_router, auth_router } = require('./controllers')
 
 app.use(express.static(path.join("front")));
 app.engine("hbs", engine({ extname: ".hbs" }));
@@ -17,8 +17,8 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
-  store: new SequelizeStore({ connection }),
-  saveUninitialized: false,
+  store: new SequelizeStore({ db: connection }),
+  saveUninitialized: true,
   resave: false,
   cookie: {
   }
@@ -32,9 +32,7 @@ app.use(session({
 // pending();
 // pending().then(value => console.log(value));
 
-app.use('/', view_routes)
-app.use('/auth', auth_routes)
-app.use('/user', user_routes)
+app.use(require('./controllers'))
 
 connection.sync({force: false}).then(() => {
   app.listen(PORT, () => {
