@@ -26,7 +26,7 @@ auth_router.post('/login', isLoggedIn, async (req, res) => {
     const { username, password } = req.body;
   
     if (!username || !password) {
-        req.session.errors = ['That Username is incorrect, please try again.'];
+        req.session.errors = ['That Username/Password is incorrect, please try again.'];
         return res.redirect('/login');
     }
   

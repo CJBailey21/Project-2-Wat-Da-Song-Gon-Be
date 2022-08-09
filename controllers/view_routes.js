@@ -24,13 +24,13 @@ view_router.get('/', isLoggedIn, (req, res) => {
 });
 
 view_router.get('/index', isLoggedOut, (req, res) => {
-    res.render('/login', { errors: req.session.errors})
+    res.render('index', { errors: req.session.errors})
 })
 view_router.get('/login', isLoggedIn, (req, res) => {
-    res.render('/index', { errors: req.session.errors})
+    res.render('login', { errors: req.session.errors})
 })
 view_router.get('/register', isLoggedIn, (req, res) => {
-    res.render('/index', { errors: req.session.errors})
+    res.render('register', { errors: req.session.errors})
 })
 
 module.exports = view_router

@@ -1,4 +1,9 @@
 <h3>Welcome</h3>
-<a href="/login">Log In</a>
-    <span>or</span>
-<a href="/register">Register</a>
+{{#if user}}
+        <span class="username">{{user.username}}</span>
+        <a href="/auth/logout">Log Out</a>
+        {{else}}
+        <a href="/login">Log In</a>
+        <span>or</span>
+        <a href="/register">Register</a>
+      {{/if}}
