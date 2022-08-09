@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.4",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
@@ -12,7 +13,9 @@
     "sequelize": "^6.21.3"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed:user": "node ./seeds/user"
   },
   "name": "wat-da-song-gon-be",
   "version": "1.0.0",
