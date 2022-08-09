@@ -1,5 +1,5 @@
 const express = require("express");
-// const session = require("express-session");
+const session = require("express-session");
 const { engine } = require("express-handlebars");
 const path = require("path");
 const connection = require("./config/connection");
