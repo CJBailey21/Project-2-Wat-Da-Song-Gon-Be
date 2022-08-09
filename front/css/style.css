@@ -1,0 +1,122 @@
+/* .icon-container { */
+    /* display: flex;
+    justify-content: space-between; */
+/* }
+.side-navbar {
+    padding: auto;
+}
+#tokenSection {
+    padding-bottom: 0%;
+    text-align: center;
+    
+} */
+ body {
+    /* -webkit-text-size-adjust: 100%;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(0,0,0,.87);
+    font-size: 15px;
+    vertical-align: baseline;
+    box-sizing: inherit;
+    border: 0;
+    text-shadow: none!important;
+    padding: 0; */
+    /* background: rgb(144, 212, 170); */
+    font-family: GeogrotesqueUltraLight,Arial,Helvetica,sans-serif;
+    /* margin: 0;
+    width: 1690px;
+    position: absolute;
+    left: 260px; */
+} 
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 15
+}
+
+header #menu {
+    /* display: block;
+    height: 58px;
+    padding: 0 1.95em;
+    background: #fff;
+    height: 100%;
+    /* left: -330px; */
+    /* position: fixed;
+    top: 0;
+    transition: -webkit-transform .5s ease;
+    transition: transform .5s ease; */
+    /* -webkit-transform: translateX(-110%);
+    -ms-transform: translateX(-110%);
+    transform: translateX(-110%); */
+    /*width: 100%;
+    z-index: 3; */
+}
+
+header #menu a {
+    position: relative;
+    z-index: 3;
+}
+
+header #nav-content .nav-background {
+    background: #fff;
+    /* height: 100%; */
+    left: -330px;
+    position: fixed;
+    top: 0;
+    transition: -webkit-transform .5s ease;
+    transition: transform .5s ease;
+    -webkit-transform: translateX(-110%);
+    -ms-transform: translateX(-110%);
+    transform: translateX(-110%);
+    width: 100%
+}
+
+header.open #nav-content .nav-background {
+    -webkit-transform: translateX(330px);
+    -ms-transform: translateX(330px);
+    transform: translateX(330px)
+}
+
+#menu.open {
+    -webkit-transform: translateX(330px);
+    -ms-transform: translateX(330px);
+    transform: translateX(330px)
+}
+
+main.open {
+    -webkit-transform: translateX(330px);
+    -ms-transform: translateX(330px);
+    transform: translateX(330px)
+}
+
+#nav-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+#nav-menu li {
+    height: 40px !important;
+}
+
+#nav-menu a {
+    height: 40px !important;
+}
+
+main {
+    display: block;
+    padding: 0 1.95em;
+    background: red;
+    height: 100%;
+    /* left: -330px; */
+    position: fixed;
+    top: 0;
+    transition: -webkit-transform .5s ease;
+    transition: transform .5s ease;
+    /* -webkit-transform: translateX(-110%);
+    -ms-transform: translateX(-110%);
+    transform: translateX(-110%); */
+    width: 100%;
+    z-index:4;
+}
