@@ -2,7 +2,6 @@ const auth_router = require('express').Router()
 const User = require('../models/User')
 const { isLoggedIn } = require('./helpers')
 
-
 auth_router.post('/register', isLoggedIn, (req, res) => {
     const { username, password } = req.body;
   
@@ -15,7 +14,7 @@ auth_router.post('/register', isLoggedIn, (req, res) => {
         .then(new_user => {
             req.session.save(() => {
                 req.session.user_id = new_user.id;
-                res.redirect('/');
+                res.redirect('/spotauth');
             });
         }).catch(err => {
             req.session.errors = err.errors.map(e => e.message);
@@ -23,7 +22,7 @@ auth_router.post('/register', isLoggedIn, (req, res) => {
         });
 });
  
-auth_router.post('/login', isLoggedIn, (req, res) => {
+auth_router.post('/login', isLoggedIn, async (req, res) => {
     const { username, password } = req.body;
   
     if (!username || !password) {
@@ -38,7 +37,7 @@ auth_router.post('/login', isLoggedIn, (req, res) => {
         }
     req.session.save(() => {
         req.session.user_id = user.id;
-        res.redirect('/index');
+        res.redirect('/spotauth');
     });
 })
 
