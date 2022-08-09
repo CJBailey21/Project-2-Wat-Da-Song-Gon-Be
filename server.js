@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
 // pending();
 // pending().then(value => console.log(value));
 
-connection.sync({force: true}).then(() => {
+connection.sync({force: false}).then(() => {
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
   });

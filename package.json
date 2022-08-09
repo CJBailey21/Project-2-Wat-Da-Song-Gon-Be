@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "watch": "nodemon server.js"
+    "watch": "nodemon server.js",
+    "seed:user": "node ./seeds/user"
   },
   "name": "wat-da-song-gon-be",
   "version": "1.0.0",
