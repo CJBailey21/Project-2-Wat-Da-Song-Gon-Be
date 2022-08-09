@@ -100,6 +100,7 @@ function handleAuthorizationResponse(){
 
         }
         onPageLoad();
+        ApiCalls();
     }
     else{
         console.log(this.responseText);
@@ -138,7 +139,7 @@ function handleDevicesResponse(){
     }
     else if(this.status == 401){
         
-        //  refreshAccessToken();
+         refreshAccessToken();
     }
     else{
         console.log(this.responseText);
@@ -189,7 +190,8 @@ function callApi(method,url,body,callback){
 
 
 
-// User profile name (maybe picture maybe follower), user playlists
+//---NEEDS----
+//save the data into a class maybe so i can export the data into another file
 //eventually need to connect the server we made to this
-
 //eventually hide client secret in local storage
+// get request find  a uder /// autofill method
