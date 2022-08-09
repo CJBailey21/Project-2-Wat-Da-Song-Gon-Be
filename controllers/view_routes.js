@@ -22,6 +22,26 @@ view_router.get('/', isLoggedIn, (req, res) => {
   
     res.render('index');
 });
+//if (!req.session.user_id) 
+view_router.get('/spotauth', isLoggedOut, (req, res) => {
+    const user_id = req.session.user_id;
+
+    if (user_id) {
+        return User.findOne({
+            where: {
+            id: user_id
+            },
+        attributes: ['id', 'username']
+        })
+        .then(user => {
+            user = {
+                username: user.username
+            };
+            res.render('spotauth', { user });
+        });
+    }
+})
+
 
 view_router.get('/index', isLoggedOut, (req, res) => {
     res.render('index', { errors: req.session.errors})
