@@ -1,3 +1,4 @@
+
 var redirect_uri = "http://127.0.0.1:5500" //index.html file
 
 var client_id = "aab25a14ef854598a110d3ba13516d86";
@@ -169,3 +170,14 @@ function callApi(method,url,body,callback){
     xhr.onload = callback;
     
 }
+
+var menu = document.getElementById('menu');
+menu.addEventListener('click',
+	function () {
+    	var header = document.getElementsByTagName('header')[0];
+        var main = document.getElementsByTagName('main')[0];
+        header.classList.toggle('open');
+        main.classList.toggle('open');
+        // menu.classList.toggle('open');
+    }
+);
