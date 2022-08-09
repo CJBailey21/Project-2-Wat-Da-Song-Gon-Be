@@ -1,31 +1,29 @@
 const express = require("express");
-// const session = require("express-session");
+const session = require("express-session");
 const { engine } = require("express-handlebars");
-const bcrypt = require("bcrypt"); // Place into User.js
 const path = require("path");
-// const { Sequelize } = require("sequelize");
+const connection = require("./config/connection");
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const PORT = process.env.PORT || 4545; // Placeholder port
 require("dotenv").config();
-const connection = require("./config/connection");
-// const controllers = require("./controllers/index");
 const app = express();
-// const User = require("./models/User");
-
-
-app.engine("hbs", engine({ extname: ".hbs" }));
-app.set("view engine", "hbs");
+const { view_router, user_router, auth_router } = require('./controllers')
 
 app.use(express.static(path.join("front")));
+app.engine("hbs", engine({ extname: ".hbs" }));
+app.set("view engine", "hbs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(require('./controllers'))
-// app.use("/api", controllers);
 
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/layouts/main.hbs"));
-  console.log(`Listening in on main.hbs.`)
-});
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  store: new SequelizeStore({ db: connection }),
+  saveUninitialized: true,
+  resave: false,
+  cookie: {
+  }
+  })
+);
 
 // async function pending() {
 //   const users = await User.findAll();
@@ -33,6 +31,8 @@ app.get("/", (req, res) => {
 // };
 // pending();
 // pending().then(value => console.log(value));
+
+app.use(require('./controllers'))
 
 connection.sync({force: false}).then(() => {
   app.listen(PORT, () => {
