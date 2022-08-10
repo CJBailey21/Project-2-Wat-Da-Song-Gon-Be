@@ -10,9 +10,9 @@ db.sync({force: true}).then(() => {
         username: 'Roger6', password: 'asdfghj'
       }
     ]
-    User.bulkCreate(userData).then(users => {
-        users[0].addFollower(users[1]).then(() => {
-            console.log('follower added');
-        })
-    })
+//     User.bulkCreate(userData).then(users => {
+//         users[0].addFollower(users[1]).then(() => {
+//             console.log('follower added');
+//         })
+//     })
 })
