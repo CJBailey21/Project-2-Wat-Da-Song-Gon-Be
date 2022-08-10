@@ -140,7 +140,7 @@ function handleDevicesResponse(){
     }
     else if(this.status == 401){
         
-        //  refreshAccessToken();
+         refreshAccessToken();
     }
     else{
         console.log(this.responseText);
@@ -171,6 +171,27 @@ function callApi(method,url,body,callback){
     xhr.onload = callback;
     
 }
+
+const uicontroller =(function() {
+    const domEle = {
+        playlist: '.playlist',
+        spotpro: '.spotpro',
+        songList: '.songList',
+        songDetail: '.songDetail'
+    }
+    return{
+    createSpotPro() {
+        const userDiv = document.querySelector(domEle.spotpro)
+        userDiv.innerHTML(USER)
+    },
+    createPlaylist() {
+        const playlistDiv = document.querySelector(domEle.playlist)
+        playlistDiv.innerHTML(PLAYLISTS)
+    }
+}})
+
+uicontroller()
+
 
 // var menu = document.getElementById('menu');
 // menu.addEventListener('click',
