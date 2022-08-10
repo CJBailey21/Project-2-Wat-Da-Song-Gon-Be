@@ -1,7 +1,10 @@
-<h3>Welcome</h3>
+<h3 class="text-center">Welcome</h3>
 {{#if user}}
+    <div class="container">
+        <div class="text-center">
         <span class="username">{{user.username}}</span>
-        <a href="/auth/logout">Log Out</a>
+        </div>
+    </div>
         {{!-- <nav class="home" id="menu">
                 <a class="nav-trigger" href="#">
                     <input type="button" class="btn btn-dark btn-sm mt-3" value="Transfer"> </a>
@@ -12,15 +15,18 @@
                 <input class="btn btn-primary btn-sm mt-3" type="button" onclick="ApiCalls()" value="Get Api Data">
             </div>
             <div class="row mt-4">
-  <div class="col-md-6">
+  <div class="col-md-12">
 
         <p class="spotpro"></p>
+        <p class="playlist"></p>
 
+<div class="col-md-6 container">
+    <div class="text-left">
     <h3>Create a New Post:</h3>
 
     <form action="/user" method="post" class="form new-post">
       <div class="form-group">
-        <label for="post-comment">Type Post Here:</label>
+        <label class="align-top" for="post-comment">Type Post Here:</label>
         <textarea name="post" class="form-input" id="post"></textarea>
       </div>
       <div class="form-group">
@@ -30,8 +36,9 @@
   </div>
 
   {{#if user.posts}}
-    <div class="col-md-6 post-container">
-        <h4>My Posts:</h3>
+    <div class="offset-6 col-md-6 post-container">
+        <div class="text-center">
+        <h4 >My Posts:</h3>
 
         {{#each user.posts as |post|}}
         <div class="row mb-2">
@@ -45,7 +52,10 @@
             </div>
         </div>
         {{/each}}
+        </div>
     </div>
+    </div>
+</div>
   {{/if}}
     </div>
         {{else}}

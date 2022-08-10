@@ -111,7 +111,7 @@ main {
     height: 100%;
     /* left: -330px; */
     position: fixed;
-    top: 60px;
+    top: 75px;
     transition: -webkit-transform .5s ease;
     transition: transform .5s ease;
     /* -webkit-transform: translateX(-110%);
@@ -125,3 +125,4 @@ main {
     text-decoration: none;
     color: black;
 }
+
