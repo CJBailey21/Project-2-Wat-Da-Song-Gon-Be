@@ -85,7 +85,7 @@ function callAuthorizationApi(body){
 }
 
 function handleAuthorizationResponse(){
-    console.log(this.status)
+    
     if(this.status == 200){
         var data = JSON.parse(this.responseText);
         console.log(data);
@@ -131,7 +131,7 @@ function ApiCalls(){
     callApi("GET",PLAYLISTS,null,handleResponse);
     callApi("GET",SONGPLAYING,null,handleResponse);
     callApi("GET",USER,null,handleResponse);
-    printName();
+   
     
 }
 
@@ -139,15 +139,19 @@ function ApiCalls(){
 function handleResponse(){
     if(this.status == 200){
         var data = JSON.parse(this.responseText);
-        // console.log(data.display_name)
+        console.log(data)
         if(data.display_name != undefined){
             console.log(data.display_name)
             username_html.innerHTML = data.display_name
         }
+        else if( data.items != undefined){
+            for(var i = 0;i< data.items.length; i++){
+                console.log(data.items[i].name);
+            }
+            
+        }
         
-        list_data.push(data);
-        
-        
+    
         // removeAllitems("devices");
         // data.devices.forEach(item=> addDevice(item));
     }
@@ -156,8 +160,8 @@ function handleResponse(){
          refreshAccessToken();
     }
     else{
-        console.log(this.responseText);
-        alert(this.responseText);
+        // console.log(this.responseText);
+        // alert(this.responseText);
     }
 }
 
@@ -185,9 +189,7 @@ function callApi(method,url,body,callback){
     
 }
 
- function printName(){
-    console.log(list_data)
- }
+ 
 // function removeAllItems(elementId){
 //     let node = document.getElementById(elementId);
 //     while(node.firstChild){
