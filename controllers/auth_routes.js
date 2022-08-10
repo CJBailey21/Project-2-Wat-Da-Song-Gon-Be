@@ -24,12 +24,17 @@ auth_router.post('/register', isLoggedIn, (req, res) => {
  
 auth_router.post('/login', isLoggedIn, async (req, res) => {
     const { username, password } = req.body;
+    
   
     if (!username || !password) {
-        req.session.errors = ['That Username is incorrect, please try again.'];
+        req.session.errors = ['That Username/Password is incorrect, please try again.'];
         return res.redirect('/login');
     }
-  
+    const user = await User.findOne({
+        where: {
+            username
+        }
+    })
     const pass_is_valid = await user.validatePassword(password, user.password);
         if (!pass_is_valid) {
             req.session.errors = ['Your password is incorrect'];

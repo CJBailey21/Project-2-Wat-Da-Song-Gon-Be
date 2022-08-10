@@ -11,7 +11,7 @@ exports.isLoggedIn = function (req, res, next) {
 
 exports.isLoggedOut = function (req, res, next) {
     const user_id = req.session.user_id
-    const is_main_page = req.path.match(/index/gi)
+    const is_main_page = req.path.match(/index|spotauth/gi)
 
     if (is_main_page && !user_id) {
         return res.redirect('/login')
