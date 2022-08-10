@@ -11,6 +11,5 @@ User.findByPk(1, {
 
  //logged in user, grab object of logged in, grab object of followed user, user object of followed: call .addFollower, pass in logged in user to method
 
-
  
 module.exports = user_router
