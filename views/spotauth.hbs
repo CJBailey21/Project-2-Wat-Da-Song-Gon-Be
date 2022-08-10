@@ -1,4 +1,4 @@
-<body onload = "onPageLoad()">
+{{!-- <body onload = "onPageLoad()">
     <div id = "tokenSection">
         <input class ="btn btn-primary btn-lg" type = "button" onclick = 'requestAuthorization()' value = "Request Authorization">
     </div>
@@ -13,3 +13,49 @@
             </div>
         </div>
     </div>
+</body> --}}
+
+<header>
+        <main>
+            <nav class="home" id="menu">
+                <a class="nav-trigger" href="#">
+                    <input type="button" class="btn btn-dark btn-sm mt-3" value="Transfer"> </a>
+            </nav>
+            <div id="tokenSection">
+                <input class="btn btn-primary btn-lg" type="button" onclick='requestAuthorization()'
+                    value="Request Authorization">
+                <input class="btn btn-primary btn-sm mt-3" type="button" onclick="ApiCalls()" value="Get Api Data">
+            </div>
+            <h1>Hello</h1>
+        </main>
+
+        <nav id="nav-content">
+            <div class="nav-background">
+                <div class="col s3 black" style="width: 300px;height: 150vh;">
+                    <div class="section">
+                        <!-- <img src="https://via.placeholder.com/150" alt="image" class="circle"/> -->
+                        <div class="circle red" style="width: 200px;height: 200px">
+
+                        </div>
+                        <div>
+                            <ul id="nav-menu">
+                                <li><a href="/" class="side--home"><i class="fa fa-home fa-2x"></i> Home</a></li>
+                                <li><a href="/blog" class="side--blog"><i class="fa fa-terminal fa-2x"></i> Blog</a>
+                                </li>
+                                <li><a href="/followers" class="side--archive"><i class="fa fa-archive fa-2x"></i>
+                                        Followers</a>
+                                </li>
+                                <li class="active"><a href="#"><i class="fa fa-code fa-2x"></i> Followings</a></li>
+                                <li><a href="/about" class="side--about"><i class="fa fa-child fa-2x"></i> Account</a>
+                                </li>
+                                <li><a href="/setting" class="side--contact"><i class="fa fa-send fa-2x"></i>
+                                        Settings</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+

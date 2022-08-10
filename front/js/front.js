@@ -115,6 +115,7 @@ function requestAuthorization(){
     let url = AUTHORIZE;
     url+= "?client_id=" + client_id;
     url+= "&response_type=code";
+    // url+= "&redirect_uri=" + encodeURI(redirect_uri);
     url+= "&redirect_uri=" + encodeURI(redirect_uri);
     url += "&show_dialog=true";
     url += "&scope=user-read-private user-read-email user-read-playback-state user-modify-playback-state user-read-recently-played"
@@ -171,13 +172,13 @@ function callApi(method,url,body,callback){
     
 }
 
-var menu = document.getElementById('menu');
-menu.addEventListener('click',
-	function () {
-    	var header = document.getElementsByTagName('header')[0];
-        var main = document.getElementsByTagName('main')[0];
-        header.classList.toggle('open');
-        main.classList.toggle('open');
-        // menu.classList.toggle('open');
-    }
-);
+// var menu = document.getElementById('menu');
+// menu.addEventListener('click',
+// 	function () {
+//     	var header = document.getElementsByTagName('header')[0];
+//         var main = document.getElementsByTagName('main')[0];
+//         header.classList.toggle('open');
+//         main.classList.toggle('open');
+//         // menu.classList.toggle('open');
+//     }
+// );
