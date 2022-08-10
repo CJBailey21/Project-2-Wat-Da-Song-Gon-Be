@@ -101,10 +101,11 @@ function handleAuthorizationResponse(){
 
         }
         onPageLoad();
+        ApiCalls()
     }
     else{
         console.log(this.responseText);
-        alert(this.reponseText);
+        // alert(this.reponseText);
     }
 }
 
@@ -130,10 +131,23 @@ function ApiCalls(){
     callApi("GET",USER,null,handleDevicesResponse);
 }
 
+const nameEle = document.querySelector('.spotpro')
 
 function handleDevicesResponse(){
     if(this.status == 200){
         var data = JSON.parse(this.responseText);
+        console.log(data);
+        if (data.display_name != undefined){
+            nameEle.innerHTML(data.display_name);
+                 }
+         else if( data.items != undefined){
+             // `<p> Playlist Names: </p>`
+             for(var i = 0;i< data.items.length; i++){
+                console.log(data.items[i].name);
+             }
+             
+         }
+ 
         console.log(data);
         // removeAllitems("devices");
         // data.devices.forEach(item=> addDevice(item));
@@ -144,7 +158,7 @@ function handleDevicesResponse(){
     }
     else{
         console.log(this.responseText);
-        alert(this.responseText);
+        // alert(this.responseText);
     }
 }
 
@@ -172,25 +186,25 @@ function callApi(method,url,body,callback){
     
 }
 
-const uicontroller =(function() {
-    const domEle = {
-        playlist: '.playlist',
-        spotpro: '.spotpro',
-        songList: '.songList',
-        songDetail: '.songDetail'
-    }
-    return{
-    createSpotPro() {
-        const userDiv = document.querySelector(domEle.spotpro)
-        userDiv.innerHTML(USER)
-    },
-    createPlaylist() {
-        const playlistDiv = document.querySelector(domEle.playlist)
-        playlistDiv.innerHTML(PLAYLISTS)
-    }
-}})
+// const uicontroller =(function() {
+//     const domEle = {
+//         playlist: '.playlist',
+//         spotpro: '.spotpro',
+//         songList: '.songList',
+//         songDetail: '.songDetail'
+//     }
+//     return{
+//     createSpotPro() {
+//         const userDiv = document.querySelector(domEle.spotpro)
+//         userDiv.innerHTML(USER)
+//     },
+//     createPlaylist() {
+//         const playlistDiv = document.querySelector(domEle.playlist)
+//         playlistDiv.innerHTML(PLAYLISTS)
+//     }
+// }})
 
-uicontroller()
+// uicontroller()
 
 
 // var menu = document.getElementById('menu');

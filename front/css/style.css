@@ -120,3 +120,8 @@ main {
     width: 100%;
     z-index:4;
 }
+
+.new-posts {
+    text-decoration: none;
+    color: black;
+}
