@@ -1,5 +1,6 @@
 const { DataTypes, Model } = require('sequelize');
 const bcrypt = require('bcrypt');
+const index = require('./index')
 
 class User extends Model { }
 
@@ -45,8 +46,8 @@ User.prototype.validatePassword = async function (pass, stored_pass) {
     return await bcrypt.compare(pass, stored_pass);
   }
 
-User.belongsToMany(User, { through: 'user_followers', as: 'followers', foreignKey: 'user_id'})
-User.belongsToMany(User, { through: 'user_followers', as: 'following', foreignKey: 'follower_id' })
+User.belongsToMany(User, { through: 'user_posts', as: 'poster', foreignKey: 'user_id'})
+User.belongsToMany(User, { through: 'user_posts', as: 'post', foreignKey: 'post_id' })
 
   
   module.exports = User;
