@@ -4,7 +4,7 @@ const { engine } = require("express-handlebars");
 const path = require("path");
 const connection = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const PORT = process.env.PORT || 4545; // Placeholder port
+const PORT = process.env.PORT || 5500; // Placeholder port
 require("dotenv").config();
 const app = express();
 const { view_router, user_router, auth_router } = require('./controllers')

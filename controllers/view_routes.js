@@ -42,6 +42,25 @@ view_router.get('/spotauth', isLoggedOut, (req, res) => {
     }
 })
 
+view_router.get('/home', isLoggedOut, (req, res) => {
+    const user_id = req.session.user_id;
+
+    if (user_id) {
+        return User.findOne({
+            where: {
+            id: user_id
+            },
+        attributes: ['id', 'username']
+        })
+        .then(user => {
+            user = {
+                username: user.username
+            };
+            res.render('home', { user });
+        });
+    }
+})
+
 
 view_router.get('/index', isLoggedOut, (req, res) => {
     res.render('index', { errors: req.session.errors})
