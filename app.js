@@ -11,9 +11,16 @@ const DEVICES = "https://api.spotify.com/v1/me/player/devices"
 const PLAYLISTS = "https://api.spotify.com/v1/me/playlists"
 const SONGPLAYING = "https://api.spotify.com/v1/me/player/currently-playing"
 
+const playlist_data = document.querySelector("#playlists");
+const username_html = document.querySelector("#usernamef");
+// console.log(playlist_data);
+// console.log(username_data);
+var list_data = []
+
+
 function onPageLoad(){
     localStorage.setItem("client_id",client_id);
-    localStorage.setItem("client_secret",client_secret);
+    // localStorage.setItem("client_secret",client_secret);
     if(window.location.search.length > 0){
         handleRedirect();
     }
@@ -72,16 +79,13 @@ function callAuthorizationApi(body){
     xhr.open("POST",TOKEN,true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     var authorizationString = client_id + ":"+ client_secret;
-    // authorizationString = toBinary(authorizationString);
-    // console.log(toBinary(authorizationString));
-    // var encoded_data = btoa(authorizationString);
     xhr.setRequestHeader('Authorization', 'Basic '+ btoa(authorizationString)); //////////////////////////////////////
-    
     xhr.send(body);
     xhr.onload = handleAuthorizationResponse; 
 }
 
 function handleAuthorizationResponse(){
+    console.log(this.status)
     if(this.status == 200){
         var data = JSON.parse(this.responseText);
         console.log(data);
@@ -103,15 +107,15 @@ function handleAuthorizationResponse(){
         ApiCalls();
     }
     else{
-        console.log(this.responseText);
-        alert(this.reponseText);
+        // console.log(this.responseText);
+        // alert(this.reponseText);
     }
 }
 
 function requestAuthorization(){
 
     localStorage.setItem("client_id",client_id);
-    localStorage.setItem("client_secret",client_secret);
+    // localStorage.setItem("client_secret",client_secret);
     let url = AUTHORIZE;
     url+= "?client_id=" + client_id;
     url+= "&response_type=code";
@@ -123,17 +127,27 @@ function requestAuthorization(){
 }
 
 function ApiCalls(){
-    callApi("GET",DEVICES,null,handleDevicesResponse);
-    callApi("GET",PLAYLISTS,null,handleDevicesResponse);
-    callApi("GET",SONGPLAYING,null,handleDevicesResponse);
-    callApi("GET",USER,null,handleDevicesResponse);
+    callApi("GET",DEVICES,null,handleResponse);
+    callApi("GET",PLAYLISTS,null,handleResponse);
+    callApi("GET",SONGPLAYING,null,handleResponse);
+    callApi("GET",USER,null,handleResponse);
+    printName();
+    
 }
 
 
-function handleDevicesResponse(){
+function handleResponse(){
     if(this.status == 200){
         var data = JSON.parse(this.responseText);
-        console.log(data);
+        // console.log(data.display_name)
+        if(data.display_name != undefined){
+            console.log(data.display_name)
+            username_html.innerHTML = data.display_name
+        }
+        
+        list_data.push(data);
+        
+        
         // removeAllitems("devices");
         // data.devices.forEach(item=> addDevice(item));
     }
@@ -171,6 +185,9 @@ function callApi(method,url,body,callback){
     
 }
 
+ function printName(){
+    console.log(list_data)
+ }
 // function removeAllItems(elementId){
 //     let node = document.getElementById(elementId);
 //     while(node.firstChild){

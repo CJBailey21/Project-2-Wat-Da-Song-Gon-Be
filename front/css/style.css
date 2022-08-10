@@ -36,5 +36,11 @@
     
 }
 #mynav{
-    background-color:  #00fa9a;;
+    background-color:  #00fa9a;
+}
+#blog_nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:  #00fa9a;
 }
