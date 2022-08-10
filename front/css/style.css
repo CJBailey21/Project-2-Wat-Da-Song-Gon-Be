@@ -36,6 +36,10 @@ header {
     z-index: 15
 }
 
+h2 {
+    margin-top: 0;
+}
+
 header #menu {
     /* display: block;
     height: 58px;
@@ -111,7 +115,7 @@ main {
     height: 100%;
     /* left: -330px; */
     position: fixed;
-    top: 75px;
+    top: 65px;
     transition: -webkit-transform .5s ease;
     transition: transform .5s ease;
     /* -webkit-transform: translateX(-110%);

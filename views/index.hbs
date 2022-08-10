@@ -17,8 +17,8 @@
             <div class="row mt-4">
   <div class="col-md-12">
 
-        <p class="spotpro"></p>
-        <p class="playlist"></p>
+        <p onload="onPageLoad(ApiCalls())" value="get Api Data" class="spotpro"></p>
+        <p onload="onPageLoad(ApiCalls())" value="Get Api Data" class="playlist"></p>
 
 <div class="col-md-6 container">
     <div class="text-left">
@@ -26,7 +26,7 @@
 
     <form action="/user" method="post" class="form new-post">
       <div class="form-group">
-        <label class="align-top" for="post-comment">Type Post Here:</label>
+        <label class="align-top black-text" for="post-comment ">Type Post Here:</label>
         <textarea name="post" class="form-input" id="post"></textarea>
       </div>
       <div class="form-group">
