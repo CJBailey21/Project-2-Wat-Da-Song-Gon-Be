@@ -17,17 +17,19 @@ const { isLoggedIn } = require('./helpers')
 
  user_router.post('/', isLoggedIn, async (req, res) => {
    const user_id = req.session.user_id
-   User[user_id].addPost()
+   const user = await User.findByPk(user_id)
+   await user.createPost(req.body)
+   res.redirect('/')
  })
  
- user_router.delete('/:id', isLoggedIn, async (req, res) => {
-   post.destroy({
+ user_router.post('/:id', isLoggedIn, async (req, res) => {
+   Post.destroy({
       where: {
         id: req.params.id
       }
     })
-      .then(post => {
-      res.json(post)
+      .then(() => {
+      res.redirect('/')
     })
     .catch(err => {
       console.log(err);

@@ -30,11 +30,17 @@ auth_router.post('/login', isLoggedIn, async (req, res) => {
         req.session.errors = ['That Username/Password is incorrect, please try again.'];
         return res.redirect('/login');
     }
+    
     const user = await User.findOne({
         where: {
             username
         }
     })
+
+    if (!user) {
+        req.session.errors = ['User with that username could not be found.'];
+        return res.redirect('/login');
+    }
     const pass_is_valid = await user.validatePassword(password, user.password);
         if (!pass_is_valid) {
             req.session.errors = ['Your password is incorrect'];
