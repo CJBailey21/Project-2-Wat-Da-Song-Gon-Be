@@ -10,6 +10,8 @@
     back and see all of your posts & updated spotify account data!
     
 
+    ![](./assets/homeLayout.png)
+
   ## Usage
     Upon visiting the site for the 1st time you will be shown a login and register buttons, clicking either will 
     take you to the corresponding page and allow you to create and account or to sign in to an already existing 
