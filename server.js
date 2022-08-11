@@ -25,13 +25,6 @@ app.use(session({
   })
 );
 
-// async function pending() {
-//   const users = await User.findAll();
-//   console.log(users)
-// };
-// pending();
-// pending().then(value => console.log(value));
-
 app.use(require('./controllers'))
 
 connection.sync({force: false}).then(() => {

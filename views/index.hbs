@@ -3,15 +3,8 @@
     <div class="container">
         <div class="text-center">
         <span class="username">{{user.username}}</span>
-        </div>
-    </div>
-        {{!-- <nav class="home" id="menu">
-                <a class="nav-trigger" href="#">
-                    <input type="button" class="btn btn-dark btn-sm mt-3" value="Transfer"> </a>
-            </nav> --}}
+        <a href="/auth/logout">Log Out</a>
             <div id="tokenSection">
-                {{!-- <input class="btn btn-primary btn-lg" type="button" onclick='requestAuthorization()'
-                    value="Request Authorization"> --}}
                 <input class="btn btn-primary btn-sm mt-3" type="button" onclick="ApiCalls()" value="Get Api Data">
             </div>
             <div class="row mt-4">
@@ -59,7 +52,7 @@
   {{/if}}
     </div>
         {{else}}
-        <a href="/login">Log In</a>
-        <span>or</span>
-        <a href="/register">Register</a>
-        {{/if}}
+          <a href="/login">Log In</a>
+          <span>or</span>
+          <a href="/register">Register</a>
+  {{/if}}
