@@ -41,7 +41,7 @@ view_router.get('/', isLoggedIn, async (req, res) => {
                 }
              })
         } 
-        return res.render('index', {user})
+        return res.render('index', {user, redirect_uri: process.env.NODE_ENV === 'production' ? 'https://infinite-coast-04831.herokuapp.com/' : "http://127.0.0.1:5500"})
     }
     res.render('index')
 });
