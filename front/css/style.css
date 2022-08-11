@@ -107,7 +107,9 @@ main.open {
 main {
     display: block;
     padding: 0 1.95em;
-    background: rgb(94, 183, 143);
+    background-image: url("../css/Screenshot\ 2022-08-09\ 184449.png");
+    
+    /* background: rgb(94, 183, 143); */
     height: 100%;
     /* left: -330px; */
     position: fixed;
@@ -119,4 +121,23 @@ main {
     transform: translateX(-110%); */
     width: 100%;
     z-index:4;
+}
+
+#hero{
+    background: url("../css/wp-content2F20142FScreen-Shot-2014-04-02-at-2.49.11-AM-640x416.png%2Ffull-fit-in__638x368.png");
+    animation: slide 20s infinite;
+}
+@keyframes slide {
+    25%{
+        background: url("../css/wp-content2F20142FScreen-Shot-2014-04-02-at-2.49.11-AM-640x416.png%2Ffull-fit-in__638x368.png");
+    }
+    50%{
+        background: url("../css/Screenshot\ 2022-08-09\ 184554.png");
+    }
+    75%{
+        background: url("../css/Screenshot\ 2022-08-09\ 184449.png");
+    }
+    100%{
+        background: url("../css/07.png.crdownload");
+    }
 }
