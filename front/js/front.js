@@ -1,4 +1,5 @@
-var redirect_uri = "http://127.0.0.1:5500" || "https://infinite-coast-04831.herokuapp.com/"
+var redirect_uri = "https://infinite-coast-04831.herokuapp.com/"  || "http://127.0.0.1:5500"
+
 
 
 var client_id = "aab25a14ef854598a110d3ba13516d86";
