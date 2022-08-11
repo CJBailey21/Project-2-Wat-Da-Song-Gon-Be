@@ -17,7 +17,9 @@
       <div class="nav-wrapper">
         <a href="#!" class="brand-logo">The Final Countdown</a>
         <ul class="right hide-on-med-and-down">
+          {{#if user}}
           <a class="black-text right-align" href="/auth/logout">Log Out</a>
+          {{/if}}
         </ul>
       </div>
     </nav>
