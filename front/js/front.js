@@ -1,9 +1,5 @@
-
-var redirect_uri = "http://127.0.0.1:5500" //index.html file
-
 var client_id = "aab25a14ef854598a110d3ba13516d86";
 var client_secret = "f306af294bef4360a793d548c5971e42";
-// var code = 'AQBfoDsOpysDOF0T79ZUaM3PS3lyeKKfEbNcnrafW8v4gc6wzZwnJcAW8uVjm82KOlRzri3mE1WbV5kWlfkML8o1ZvvjEj5tibaU70kajboNNnDVMR-IMocrXJFM45sPpE3ccvI3J-VKEb0uNb8AYVaxNSnZ98AWRTox0OH0QvjkdSV0jrWdlh4Zmfo';
 
 const AUTHORIZE = "https://accounts.spotify.com/authorize" //the spotify authorize link
 const TOKEN = "https://accounts.spotify.com/api/token";
@@ -73,9 +69,6 @@ function callAuthorizationApi(body){
     xhr.open("POST",TOKEN,true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     var authorizationString = client_id + ":"+ client_secret;
-    // authorizationString = toBinary(authorizationString);
-    // console.log(toBinary(authorizationString));
-    // var encoded_data = btoa(authorizationString);
     xhr.setRequestHeader('Authorization', 'Basic '+ btoa(authorizationString)); //////////////////////////////////////
     
     xhr.send(body);
@@ -116,12 +109,10 @@ function requestAuthorization(){
     let url = AUTHORIZE;
     url+= "?client_id=" + client_id;
     url+= "&response_type=code";
-    // url+= "&redirect_uri=" + encodeURI(redirect_uri);
     url+= "&redirect_uri=" + encodeURI(redirect_uri);
     url += "&show_dialog=true";
     url += "&scope=user-read-private user-read-email user-read-playback-state user-modify-playback-state user-read-recently-played"
     window.location.href = url;
-    // window.location.href = url; //Show SPotify's authorization screen
 }
 
 function ApiCalls(){
@@ -142,7 +133,6 @@ function handleDevicesResponse(){
             nameEle.innerHTML = data.display_name;
                  }
          else if( data.items != undefined){
-             // `<p> Playlist Names: </p>`
              for(var i = 0;i< data.items.length; i++){
                 console.log(data.items[i].name);
             playEle.innerHTML += data.items[i].name + ',  '
@@ -150,8 +140,6 @@ function handleDevicesResponse(){
          }
  
         console.log(data);
-        // removeAllitems("devices");
-        // data.devices.forEach(item=> addDevice(item));
     }
     else if(this.status == 401){
         
@@ -159,7 +147,6 @@ function handleDevicesResponse(){
     }
     else{
         console.log(this.responseText);
-        // alert(this.responseText);
     }
 }
 
@@ -185,35 +172,3 @@ function callApi(method,url,body,callback){
     xhr.onload = callback;
     
 }
-
-// const uicontroller =(function() {
-//     const domEle = {
-//         playlist: '.playlist',
-//         spotpro: '.spotpro',
-//         songList: '.songList',
-//         songDetail: '.songDetail'
-//     }
-//     return{
-//     createSpotPro() {
-//         const userDiv = document.querySelector(domEle.spotpro)
-//         userDiv.innerHTML(USER)
-//     },
-//     createPlaylist() {
-//         const playlistDiv = document.querySelector(domEle.playlist)
-//         playlistDiv.innerHTML(PLAYLISTS)
-//     }
-// }})
-
-// uicontroller()
-
-
-// var menu = document.getElementById('menu');
-// menu.addEventListener('click',
-// 	function () {
-//     	var header = document.getElementsByTagName('header')[0];
-//         var main = document.getElementsByTagName('main')[0];
-//         header.classList.toggle('open');
-//         main.classList.toggle('open');
-//         // menu.classList.toggle('open');
-//     }
-// );
