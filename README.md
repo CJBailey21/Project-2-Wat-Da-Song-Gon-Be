@@ -4,7 +4,7 @@
 
   ## Description
     The Final Countdown is a web application, that allows users to share their playlists, artists, songs, or other 
-    favorite music, which requires spotify account authorization. Ultimately an app which would act like a spotify 
+    favorite music, to their personalpage. Spotify account required! Ultimately an app which would act like a spotify 
     live-blogging website, users would be allowed to follow others and view the other user's favorite music/posts! 
     It would have realtime/dynamic functionality while saving your own data in cookie-form, so that you may come 
     back and see all of your posts & updated spotify account data!
