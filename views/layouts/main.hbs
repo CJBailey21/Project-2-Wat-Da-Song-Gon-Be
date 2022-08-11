@@ -17,12 +17,19 @@
 
 <body>
   <header>
-  <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand "><h2>The Final Countdown</h2></a>
-        {{#if user}}
-            <a href="/auth/logout">Log Out</a>
-            {{/if}}
-  </nav>
+  <header>
+      <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">The Final Countdown</a>
+        <ul class="right hide-on-med-and-down">
+          {{#if user}}
+          <a class="black-text right-align" href="/auth/logout">Log Out</a>
+          {{/if}}
+        </ul>
+      </div>
+    </nav>
+  </div>
   </header>
 
   <main>
@@ -30,7 +37,7 @@
   </main>
 
   <script>
-    var redirect_uri = "{{redirect_uri}}"
+    var redirect_uri = {{redirect_uri}}
   </script>
   <script src="js/front.js"></script>
 </body>
