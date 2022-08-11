@@ -123,19 +123,20 @@ function ApiCalls(){
 }
 
 const nameEle = document.querySelector('.spotpro')
-
+const playEle = document.querySelector('.playlist')
+console.log(nameEle);
 function handleDevicesResponse(){
     if(this.status == 200){
         var data = JSON.parse(this.responseText);
         console.log(data);
         if (data.display_name != undefined){
-            nameEle.innerHTML(data.display_name);
+            nameEle.innerHTML = data.display_name;
                  }
          else if( data.items != undefined){
              for(var i = 0;i< data.items.length; i++){
                 console.log(data.items[i].name);
+            playEle.innerHTML += data.items[i].name + ',  '
              }
-             
          }
  
         console.log(data);
@@ -148,7 +149,6 @@ function handleDevicesResponse(){
         console.log(this.responseText);
     }
 }
-
 
 
 
