@@ -1,6 +1,3 @@
-
-var redirect_uri = "http://127.0.0.1:5500" //index.html file
-
 var client_id = "aab25a14ef854598a110d3ba13516d86";
 var client_secret = "f306af294bef4360a793d548c5971e42";
 // var code = 'AQBfoDsOpysDOF0T79ZUaM3PS3lyeKKfEbNcnrafW8v4gc6wzZwnJcAW8uVjm82KOlRzri3mE1WbV5kWlfkML8o1ZvvjEj5tibaU70kajboNNnDVMR-IMocrXJFM45sPpE3ccvI3J-VKEb0uNb8AYVaxNSnZ98AWRTox0OH0QvjkdSV0jrWdlh4Zmfo';
